@@ -37,13 +37,13 @@ public class TickrateContainer {
 
     public static boolean KEYS_AVAILABLE = false;
 
+    public static KeyBinding KEY_05 = null;
+    public static KeyBinding KEY_1 = null;
+    public static KeyBinding KEY_2 = null;
     public static KeyBinding KEY_5 = null;
     public static KeyBinding KEY_10 = null;
     public static KeyBinding KEY_15 = null;
     public static KeyBinding KEY_20 = null;
-    public static KeyBinding KEY_40 = null;
-    public static KeyBinding KEY_60 = null;
-    public static KeyBinding KEY_100 = null;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -68,20 +68,20 @@ public class TickrateContainer {
 
         if(KEYS_AVAILABLE) {
             // Keys
+            KEY_05 = new KeyBinding("tickratechanger.keybinding.05", Keyboard.KEY_NONE, "key.categories.misc");
+            KEY_1 = new KeyBinding("tickratechanger.keybinding.1", Keyboard.KEY_NONE, "key.categories.misc");
+            KEY_2 = new KeyBinding("tickratechanger.keybinding.2", Keyboard.KEY_NONE, "key.categories.misc");
             KEY_5 = new KeyBinding("tickratechanger.keybinding.5", Keyboard.KEY_NONE, "key.categories.misc");
             KEY_10 = new KeyBinding("tickratechanger.keybinding.10", Keyboard.KEY_NONE, "key.categories.misc");
             KEY_15 = new KeyBinding("tickratechanger.keybinding.15", Keyboard.KEY_NONE, "key.categories.misc");
             KEY_20 = new KeyBinding("tickratechanger.keybinding.20", Keyboard.KEY_NONE, "key.categories.misc");
-            KEY_40 = new KeyBinding("tickratechanger.keybinding.40", Keyboard.KEY_NONE, "key.categories.misc");
-            KEY_60 = new KeyBinding("tickratechanger.keybinding.60", Keyboard.KEY_NONE, "key.categories.misc");
-            KEY_100 = new KeyBinding("tickratechanger.keybinding.100", Keyboard.KEY_NONE, "key.categories.misc");
+            ClientRegistry.registerKeyBinding(KEY_05);
+            ClientRegistry.registerKeyBinding(KEY_1);
+            ClientRegistry.registerKeyBinding(KEY_2);
             ClientRegistry.registerKeyBinding(KEY_5);
             ClientRegistry.registerKeyBinding(KEY_10);
             ClientRegistry.registerKeyBinding(KEY_15);
             ClientRegistry.registerKeyBinding(KEY_20);
-            ClientRegistry.registerKeyBinding(KEY_40);
-            ClientRegistry.registerKeyBinding(KEY_60);
-            ClientRegistry.registerKeyBinding(KEY_100);
         }
 
         cfg.save();
@@ -178,7 +178,13 @@ public class TickrateContainer {
         if(!KEYS_AVAILABLE) return;
 
         float tickrate;
-        if(KEY_5.isPressed()) {
+        if(KEY_05.isPressed()) {
+            tickrate = 0.5f;
+        } else if(KEY_1.isPressed()) {
+            tickrate = 1;
+        } else if(KEY_2.isPressed()) {
+            tickrate = 2;
+        } else if(KEY_5.isPressed()) {
             tickrate = 5;
         } else if(KEY_10.isPressed()) {
             tickrate = 10;
@@ -186,12 +192,6 @@ public class TickrateContainer {
             tickrate = 15;
         } else if(KEY_20.isPressed()) {
             tickrate = 20;
-        } else if(KEY_40.isPressed()) {
-            tickrate = 40;
-        } else if(KEY_60.isPressed()) {
-            tickrate = 60;
-        } else if(KEY_100.isPressed()) {
-            tickrate = 100;
         } else {
             return;
         }
