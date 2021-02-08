@@ -29,10 +29,10 @@ tickratechanger.cmd.player.success=%s's client tickrate successfully changed to 
 tickratechanger.cmd.default.success=Default tickrate successfully changed to %d
 tickratechanger.cmd.map.success=Map tickrate successfully changed to %d
 
+tickratechanger.keybinding.05=Tickrate 0.5
+tickratechanger.keybinding.1=Tickrate 1
+tickratechanger.keybinding.2=Tickrate 2
 tickratechanger.keybinding.5=Tickrate 5
 tickratechanger.keybinding.10=Tickrate 10
 tickratechanger.keybinding.15=Tickrate 15
 tickratechanger.keybinding.20=Tickrate 20
-tickratechanger.keybinding.40=Tickrate 40
-tickratechanger.keybinding.60=Tickrate 60
-tickratechanger.keybinding.100=Tickrate 100
